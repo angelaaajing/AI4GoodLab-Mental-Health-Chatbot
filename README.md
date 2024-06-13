@@ -1,1 +1,1 @@
-# AI4Good-Lab-Mental-Health-Chatbot
+This is a starter template for [Learn Next.js](https://nextjs.org/learn).
