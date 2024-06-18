@@ -3,7 +3,7 @@ import React from 'react'
 export function CrisisSupport() {
   return (
     <div className="crisis-support-container">
-      <strong>If you're in immediate danger or need urgent help, call <a href="tel:9-1-1" style={{textDecoration: 'none', color: 'blue'}}>9-1-1</a>.</strong><br/>
+      <strong>If you&apos;re in immediate danger or need urgent help, call <a href="tel:9-1-1" style={{textDecoration: 'none', color: 'blue'}}>9-1-1</a>.</strong><br/>
       <strong>If you or someone you know is thinking about suicide, call or text <a href="https://988.ca/" style={{textDecoration: 'none', color: 'blue'}}>9-8-8</a>.</strong><br/> <br/>
       <strong> For First Nations, Inuit, and Métis Peoples: </strong><br/>
       <ul>
