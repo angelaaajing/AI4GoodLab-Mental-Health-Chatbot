@@ -10,7 +10,12 @@ import { ChatShareDialog } from '@/components/chat-share-dialog'
 import { useAIState, useActions, useUIState } from 'ai/rsc'
 import type { AI } from '@/lib/chat/actions'
 import { nanoid } from 'nanoid'
-import { UserMessage } from './stocks/message'
+import { UserMessage, BotCard } from './stocks/message'
+import { GroundingMethods } from './mentalHealth/GroundingMethods'
+import { CrisisSupport } from './mentalHealth/CrisisSupport'
+import { ResourceLibrary } from './mentalHealth/ResourceLibrary'
+import { SelfCareTips } from './mentalHealth/SelfCareTips'
+import './mentalHealth/styles.css'
 
 export interface ChatPanelProps {
   id?: string
@@ -34,27 +39,38 @@ export function ChatPanel({
   const { submitUserMessage } = useActions()
   const [shareDialogOpen, setShareDialogOpen] = React.useState(false)
 
+  const styles = {
+    link: {
+      textDecoration: 'none',
+      color: 'blue',
+    },
+  }
+
   const exampleMessages = [
     {
-      heading: 'What are the',
-      subheading: 'trending memecoins today?',
-      message: `What are the trending memecoins today?`
+      heading: 'Self-Care Tips',
+      subheading: 'Enhancing Your Well-being',
+      response: <SelfCareTips />
     },
     {
-      heading: 'What is the price of',
-      subheading: '$DOGE right now?',
-      message: 'What is the price of $DOGE right now?'
+      heading: 'Resource Library',
+      subheading: 'Helpful Information and Tools',
+      response: (
+        <ResourceLibrary />
+      )
     },
     {
-      heading: 'I would like to buy',
-      subheading: '42 $DOGE',
-      message: `I would like to buy 42 $DOGE`
+      heading: 'Grounding Exercises',
+      subheading: 'Techniques to Stay Present and Calm',
+      response: (
+        <GroundingMethods />
+      )
     },
     {
-      heading: 'What are some',
-      subheading: `recent events about $DOGE?`,
-      message: `What are some recent events about $DOGE?`
-    }
+      heading: 'Crisis Support',
+      subheading: 'Immediate Help and Support',
+      response: <CrisisSupport />
+    },
   ]
 
   return (
@@ -74,21 +90,13 @@ export function ChatPanel({
                   index > 1 && 'hidden md:block'
                 }`}
                 onClick={async () => {
+ 
                   setMessages(currentMessages => [
                     ...currentMessages,
                     {
                       id: nanoid(),
-                      display: <UserMessage>{example.message}</UserMessage>
+                      display: <BotCard>{example.response}</BotCard>
                     }
-                  ])
-
-                  const responseMessage = await submitUserMessage(
-                    example.message
-                  )
-
-                  setMessages(currentMessages => [
-                    ...currentMessages,
-                    responseMessage
                   ])
                 }}
               >

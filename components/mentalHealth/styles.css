@@ -1,0 +1,35 @@
+.grounding-container ul {
+  margin-top: 5px;
+  padding-left: 20px; /* Indent list items */
+}
+
+.grounding-container li {
+  list-style-type: disc; /* List item style */
+}
+
+.self-care-tips-container ul {
+  margin-top: 5px;
+  padding-left: 20px; /* Indent list items */
+}
+
+.self-care-tips-container li {
+  list-style-type: disc; /* List item style */
+}
+
+.crisis-support-container ul {
+  margin-top: 5px;
+  padding-left: 20px; /* Indent list items */
+}
+
+.crisis-support-container li {
+  list-style-type: disc; /* List item style */
+}
+
+.resource-library-container ul {
+  margin-top: 5px;
+  padding-left: 20px; /* Indent list items */
+}
+
+.resource-library-container li {
+  list-style-type: disc; /* List item style */
+}
